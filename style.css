@@ -1,0 +1,132 @@
+/* ---------- Basic setup ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f6fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #2d3436;
+  padding: 20px;
+}
+
+.quiz-app {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.screen { display: none; }
+.screen.active { display: block; }
+
+h1 { margin: 0 0 10px; font-size: 24px; }
+p { color: #636e72; line-height: 1.5; }
+
+button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ---------- Start screen ---------- */
+#start-btn, #restart-btn {
+  background: #6c5ce7;
+  color: #fff;
+  padding: 12px 22px;
+  margin-top: 14px;
+}
+#start-btn:hover, #restart-btn:hover { background: #5a4bd1; }
+
+/* ---------- Top row: progress + score ---------- */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #636e72;
+  margin-bottom: 10px;
+}
+
+#score-text {
+  position: relative;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.streak {
+  color: #e17055;
+  font-weight: 600;
+}
+
+/* floating "+points" popup when you answer */
+.popup {
+  position: absolute;
+  right: 0;
+  top: -8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #00b894;
+  animation: floatUp 1s ease forwards;
+  pointer-events: none;
+}
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-22px); }
+}
+
+/* ---------- Timer bar ---------- */
+.timer-track {
+  width: 100%;
+  height: 6px;
+  background: #dfe6e9;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+#timer-fill {
+  height: 100%;
+  width: 100%;
+  background: #00b894;
+  transition: width 0.1s linear, background 0.3s ease;
+}
+
+/* ---------- Question + options ---------- */
+#question-text { font-size: 19px; margin: 0 0 18px; }
+
+.options { display: grid; gap: 10px; }
+
+.option {
+  text-align: left;
+  background: #f5f6fa;
+  padding: 12px 14px;
+  font-weight: 500;
+  color: #2d3436;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.option:hover:not(:disabled) { background: #e8eaf6; }
+.option:disabled { cursor: default; }
+
+.option.correct { border-color: #00b894; background: #d8f8ef; }
+.option.wrong   { border-color: #e74c3c; background: #fce4e4; }
+
+#next-btn {
+  display: block;
+  margin: 18px 0 0 auto;
+  background: #2d3436;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+/* ---------- End screen ---------- */
+#final-score { font-size: 32px; font-weight: 700; color: #6c5ce7; margin: 6px 0; }

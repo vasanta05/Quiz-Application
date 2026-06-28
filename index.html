@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Quiz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="quiz-app">
+
+  <!-- START SCREEN -->
+  <div class="screen active" id="start-screen">
+    <h1> Quick Quiz</h1>
+    <p>8 questions, 15 seconds each. Answer fast for bonus points — and keep a streak going for extra rewards!</p>
+    <button id="start-btn">Start Quiz</button>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="screen" id="quiz-screen">
+    <div class="top-row">
+      <span id="progress-text">Question 1/8</span>
+      <span id="score-text">Score: 0 <span class="streak" id="streak-text"></span></span>
+    </div>
+    <div class="timer-track"><div id="timer-fill"></div></div>
+    <h2 id="question-text"></h2>
+    <div class="options" id="options"></div>
+    <button id="next-btn" style="display:none;">Next →</button>
+  </div>
+
+  <!-- END SCREEN -->
+  <div class="screen" id="end-screen">
+    <h1>Quiz Complete!</h1>
+    <p id="final-score-label">Your final score:</p>
+    <div id="final-score">0</div>
+    <p id="final-message"></p>
+    <button id="restart-btn">Try Again</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
